@@ -79,7 +79,7 @@ function App() {
   }
   return (
     <div className="App">
-      <h1 style={{textAlign:'center', fontSize: '5em'}}>Suung Diagram</h1>
+      <h1 style={{textAlign:'center', fontSize: '5em'}}>Sung Matrix</h1>
       <AddForm form={form} handleChange={updateForm} handleSubmit={handleSubmit}/>
       <SuungDiagram sets={sets} />
     </div>

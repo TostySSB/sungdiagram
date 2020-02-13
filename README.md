@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 
-This app was 
+## Live Demo: https://sungdiagram.herokuapp.com/
 
 ## Available Scripts
 

@@ -6,10 +6,10 @@ import AddForm from "./components/AddForm";
 
 function App() {
   const [sets, setSets] = useState([
-    { sets: ["I"], size: 1000, label: "Important: Delegate" },
-    { sets: ["U"], size: 1000, label: "Urgent: Delegate" },
-    { sets: ["S"], size: 1000, label: "Self: Make Time" },
-    { sets: ["I", "U"], size: 300, label: "Delegate" },
+    { sets: ["I"], size: 1000, label: "IMPORTANT: Plan" },
+    { sets: ["U"], size: 1000, label: "URGENT: Delegate Next" },
+    { sets: ["S"], size: 1000, label: "FIT: Make Time" },
+    { sets: ["I", "U"], size: 300, label: "Delegate Now" },
     { sets: ["S", "U"], size: 300, label: "Do Next" },
     { sets: ["S", "I"], size: 300, label: "Schedule" },
     { sets: ["S", "I", "U"], size: 80, label: "Do Now" }
@@ -18,41 +18,41 @@ function App() {
     name: "",
     isImportant: false,
     isUrgent: false,
-    isSelf: false
+    isFit: false
   });
   function handleSubmit(event) {
     let newSet = [{ sets: [form.name], size: 30 }];
     let oldSet = [...sets]
-    if (form.isImportant && !form.isUrgent && !form.isSelf) {
+    if (form.isImportant && !form.isUrgent && !form.isFit) {
       console.log("ONLY IMPORTANT")
       newSet.push({ sets: [form.name, "I"], size: 10000});
-    }else if (!form.isImportant && form.isUrgent && !form.isSelf) {
+    }else if (!form.isImportant && form.isUrgent && !form.isFit) {
       console.log("ONLY URGENT")
       newSet.push({ sets: [form.name, "U"], size: 10000 });
-    }else if (!form.isImportant && !form.isUrgent && form.isSelf) {
-      console.log("ONLY SELF")
+    }else if (!form.isImportant && !form.isUrgent && form.isFit) {
+      console.log("ONLY Fit")
       newSet.push({ sets: [form.name, "S"], size: 10000 });
-    }else if (form.isImportant && form.isUrgent && !form.isSelf){
+    }else if (form.isImportant && form.isUrgent && !form.isFit){
       console.log("IMPORTANT AND URGENT")
       newSet.push({ sets: [form.name,"I"], size: 20 });
       newSet.push({ sets: [form.name, "U"], size: 20 });
       newSet.push({ sets: [form.name, "U", "I"], size: 1000000 });
-    }else if (form.isImportant && !form.isUrgent && form.isSelf){
-      console.log("IMPORTANT AND SELF")
+    }else if (form.isImportant && !form.isUrgent && form.isFit){
+      console.log("IMPORTANT AND Fit")
       newSet.push({ sets: [form.name,"I"], size: 500 });
       newSet.push({ sets: [form.name, "S"], size: 500 });
       newSet.push({ sets: [form.name, "S", "I"], size: 1000000 });
     }
-    else if (form.isImportant && form.isUrgent && form.isSelf){
-      console.log("IMPORTANT AND SELF AND URGENT")
+    else if (form.isImportant && form.isUrgent && form.isFit){
+      console.log("IMPORTANT AND Fit AND URGENT")
       newSet.push({ sets: [form.name,"I"], size: 1000 });
       newSet.push({ sets: [form.name, "S"], size: 1000 });
       newSet.push({ sets: [form.name, "U"], size: 1000 });
       newSet.push({ sets: [form.name, "S", "I", "U"], size: 1000000 });
       
     }
-    else if (!form.isImportant && form.isUrgent && form.isSelf){
-      console.log("SELF AND URGENT")
+    else if (!form.isImportant && form.isUrgent && form.isFit){
+      console.log("Fit AND URGENT")
       newSet.push({ sets: [form.name, "S"], size: 1000 });
       newSet.push({ sets: [form.name, "U"], size: 1000 });
       newSet.push({ sets: [form.name, "S", "U"], size: 1000000 });
@@ -63,7 +63,7 @@ function App() {
       name: "",
       isImportant: false,
       isUrgent: false,
-      isSelf: false
+      isFit: false
     })
     event.preventDefault();
   }
@@ -79,7 +79,7 @@ function App() {
   }
   return (
     <div className="App">
-      <h1 style={{textAlign:'center', fontSize: '5em'}}>Sung Decision Diagram</h1>
+      <h1 style={{textAlign:'center', fontSize: '5em'}}>Sung Diagram</h1>
       <AddForm form={form} handleChange={updateForm} handleSubmit={handleSubmit}/>
       <SuungDiagram sets={sets} />
     </div>

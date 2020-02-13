@@ -78,11 +78,11 @@ const AddForm = props => {
           </ListElement>
           <ListElement>
             <Label>
-              For Yourself:
+              Fit:
               <CheckBox
-                name="isSelf"
+                name="isFit"
                 type="checkbox"
-                checked={props.form.isSelf}
+                checked={props.form.isFit}
                 onChange={props.handleChange}
               />
             </Label>

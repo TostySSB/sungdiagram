@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { SuungDiagram } from "./components/SuungDiagram";
 import AddForm from "./components/AddForm";
